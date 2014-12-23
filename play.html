@@ -1,22 +1,68 @@
-<!--fork	gh-pages	needs	to	commit	once	to	
-trigger	webpage-->
-<!doctype html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Untitled Document</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script type="text/javascript" src="processing.js"></script>
-    <script type="text/javascript" src="minim.js"></script>
+Brick [] brickArray;//新增一個可以放Brick物件的Array
+Ball a;
+Bar bar;
 
-<canvas id="pde"  data-processing-sources="assign5.pde Ball.pde Brick.pde Bar.pde preloads.pde"></canvas>
+// game state
+final int GAME_START = 1;
+final int GAME_RUN = 2;
+final int GAME_WIN = 3;
+final int GAME_LOSE = 4;
+int gameState;
 
-</head>
+int life = 3;
 
-<body>
-<div id="console">
+boolean shoot = false;
 
-</div>
-</body>
-</html>
+
+void mousePressed(){
+    
+  if(mouseButton==RIGHT && gameState == GAME_START){
+      shoot = !shoot; 
+  }
+}
+void shootBall(){
+  if(shoot == true){
+    a.move();
+  }
+}
+
+
+
+void setup() {
+ size(640,480);
+ bar = new Bar(100); 
+ a = new Ball(20,5); 
+  brickArray = new Brick[50];
+
+   gameState = GAME_START;
+}
+
+void draw() {
+ background(255);
+ a.move();
+ a.display();
+
+ bar.move();
+ bar.display();
+ drawLife();
+ 
+ for(int i=0; i<brickArray.length; i++){
+   brickArray[i]= new Brick(i); //用Brick的constructor做出新的Brick物件並放進brickArray的第i個位置
+  }
+ 
+ for(int i=0; i<brickArray.length; i++){
+   Brick brick = brickArray[i]; //把brickArray的第i個位置裡面的Brick物件給它一個名字叫brick
+   brick.display();//叫brick顯示出來
+}
+}
+
+void drawLife() {
+  fill(230, 74, 96);
+  text("LIFE:", 36, 455);
+ for (int i=0;i<life;i++){ 
+  ellipse(78 + 25*i, 459, 15, 15);
+
+  }
+}
+
+
