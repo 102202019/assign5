@@ -4,10 +4,9 @@ class Ball{
   float xSpeed;
   float ySpeed;
   float size;
-  
 
+  
   void move(){
-    
     x+=xSpeed;
     y+=ySpeed;
     
@@ -33,7 +32,7 @@ class Ball{
   }
   void display(){
     colorMode(RGB); 
-    fill(800,5,10);
+    fill(37,56,217);
     ellipse(x,y,size,size);
   }
   //delete it,跟上面的邊界判定重複了，不需要
@@ -70,11 +69,8 @@ class Ball{
    
       return (cornerDistance_sq <= pow(radius,2));
   }
-
-
+  
   Ball(){
-    x = mouseX;
-    y = height - 26;
     xSpeed = 5;
     ySpeed = 3;
     size = 10;
