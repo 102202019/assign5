@@ -9,7 +9,7 @@ class Bar{
   void display(){
     rectMode(CENTER);
     colorMode(RGB);
-    fill(10,20,120);
+    fill(37,56,217);
     rect(x,y,len,10);
   }
   
