@@ -37,7 +37,7 @@ class Brick{
  
   void display(){
     colorMode(RGB);
-    fill(5,5,5);
+    fill(37,56,217);
     rect(x,y,size,size);
   }
 }
