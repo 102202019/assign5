@@ -41,3 +41,4 @@ class Brick{
     rect(x,y,size,size);
   }
 }
+ 
