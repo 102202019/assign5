@@ -59,6 +59,6 @@ void drawLife() {
   fill(230, 74, 96);
   text("LIFE:", 36, 455);
  for (int i=0;i<life;i++){ 
-  ellipse(78 + 25*i, 459, 15, 15);
+  ellipse(78 + 25 *i, 459, 15, 15);
   }
 }
