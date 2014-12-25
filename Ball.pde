@@ -81,7 +81,8 @@ class Ball{
     y = random(height);
     this.xSpeed = xSpeed;
     this.ySpeed = 5;
-    this.size = size;
+    this.size = size; 
   }
 }
+
 
