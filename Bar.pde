@@ -18,3 +18,4 @@ class Bar{
     this.len = len;
   }
 }
+ 
